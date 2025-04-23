@@ -1,0 +1,129 @@
+.brand-info {
+  .brand-swiper {
+    height: 100vh;
+    position: relative;
+    .button-wrap {
+      position: absolute;
+      left: 50%;
+      top: 10.6%;
+      z-index: 1;
+      translate: -50% 0;
+      gap: 30px;
+      button {
+        position: relative;
+
+        background: transparent;
+        border: transparent;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: .2s ease-in-out;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          background-color: #fff;
+          height: 1px;
+          width: 0%;
+          transition: .2s ease-in-out;
+        }//after
+
+        &:focus,
+        &:hover {
+          opacity: 1;
+          &::after {
+            left: 0;
+            width: 100%;
+          } //hover:after
+        } //focus,hover
+
+        .imgbox{
+          height: 1.25rem;
+          img{
+            height: 100%;
+          }
+        }//imgbox
+       
+      } //button
+    } //button-wrap
+    .swiper-wrapper {
+      .swiper-slide {
+        transition: transform 0.5s ease-out; // 부드러운 parallax 효과를 위한 transition 추가
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        .cont-wrap {
+          z-index: 1;
+          position: absolute;
+          left: 50%;
+          // 애니 사전설정
+          opacity: 0;
+          top: 70%;
+          filter: blur(10px);
+          translate: -50% -50%;
+          transition: 1s .5s ease-in-out;
+          .imgbox {
+            margin: 0 auto;
+            width: 30%;
+            img {
+              width: 100%;
+            }
+          }
+          .desc {
+            line-height: 1.7;
+            span {
+              color: #fff;
+              font-weight: 200;
+              display: block;
+            }
+          } //desc
+        } //imgbox
+        .bg-box{
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(0px);
+          transition: .3s .6s ease-in-out;
+        }
+      } //swiper-slide
+    } //swiper-wrapper
+  } //brand-swiper
+} //brand-info
+
+// 미디어쿼리//////////////////////////////////////
+// 모바일 분기점: 661px
+
+@media screen and (max-width: 999px){
+  .brand-info .brand-swiper .swiper-wrapper .swiper-slide .cont-wrap .imgbox{
+    width: 35%;
+  }
+}//999
+
+@media screen and (max-width: 800px){
+  .brand-info .brand-swiper .swiper-wrapper .swiper-slide .cont-wrap .imgbox {
+    width: 58%;
+}
+.brand-info .brand-swiper .swiper-wrapper .swiper-slide .cont-wrap .desc{
+  width: 80vw;
+  font-size: 1.2rem;
+}
+.brand-info .brand-swiper .swiper-wrapper .swiper-slide .cont-wrap{
+  top: 59% !important;
+}
+
+}//800
+
+@media screen and (max-width: 670px){
+  // 모바일에선 애니 사전설정 제거
+  .brand-info .brand-swiper .swiper-wrapper .swiper-slide .cont-wrap {
+    opacity: 1;
+     top: 50%;
+    filter: blur(0px);
+  }
+  .brand-info .brand-swiper .swiper-wrapper .swiper-slide .cont-wrap .desc span{
+    font-size: 1rem;
+  }
+}//661

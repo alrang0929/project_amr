@@ -1,0 +1,208 @@
+@import "./variable/common_variable.scss";
+@import "./variable/interval_variable.scss";
+
+////////////////////////////////////////////////
+
+main {
+  .main-info {
+    /* 박스 사이 간격 조절 */
+    & > div:first-child {
+      padding-bottom: $padding-ragular;
+    }
+    & > div:not(:last-child) {
+      padding-bottom: $padding-ragular;
+    }
+    & > div + div {
+      padding-bottom: $padding-ragular;
+    }
+    ////////////////////////////////////
+    // 컨테이너
+    padding-top: $container-padding;
+    .title {
+      text-align: center;
+      letter-spacing: 0em;
+      span {
+        display: block;
+        color: $main-color;
+        font-size: $title-size;
+      }
+    }
+    .img-box {
+      margin: 0 auto;
+      width: 20%;
+      img {
+        width: 100%;
+      }
+    } //img-box
+    .desc {
+      text-align: center;
+      line-height: 1.7;
+      span {
+        display: block;
+      }
+    } //desc
+    .mcolor-mbtn {
+      margin: 0 auto;
+      width: 14rem;
+    }
+  } //main-info
+
+  .brand-imgbox{
+    padding: $container-padding 0;
+    max-width: 20vw;
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+
+    animation: slideUpImg .2s ease-in-out forwards;
+    
+    margin: 0 auto;
+    img{
+      width: 100%;
+    }
+
+
+    @keyframes slideUpImg {
+      0%{
+        opacity: 0;
+        height: 0;
+      }
+      100%{
+        opacity: 1;
+        height: 100%;
+      }
+    }
+  }
+
+  .brand-desc{
+    text-align: center;
+    padding: $padding-small;
+    font-weight: 200;
+  }
+
+  .brand-info {
+    padding-bottom: $container-padding;
+    .mcolor-mbtn{
+      // margin: 0 auto;
+      margin: $padding-ragular auto;
+      width: 14rem;
+    }
+    .title {
+      font-size: $title-size;
+      text-align: center;
+      color: $main-color;
+      padding: $padding-ragular 0;
+    } //title
+    .desc {
+      text-align: center;
+      padding: $padding-ragular 0;
+    }
+  }
+
+  .rslider-info-wrap {
+    padding: $container-padding 0;
+    .rslider-info {
+      position: relative;
+      left: 0;
+      display: flex;
+      width: 200%;
+      animation: slider-ani 10s linear infinite;
+    }
+    @keyframes slider-ani {
+      to {
+        left: -100%;
+      }
+    }
+    .rslider-info div {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 6vw;
+      box-sizing: border-box;
+      flex: 1;
+    }
+
+    .rslider-info img {
+      width: 14vw;
+      margin: 20px 0;
+    }
+  } //rslider-info-wrap
+
+  .product-info {
+    padding-bottom: $container-padding;
+    button{
+      pointer-events: auto;
+    }
+  } //product-info
+  .news-area {
+    .title-wrap {
+      padding: $padding-ragular 0;
+      .title {
+        font-size: $title-size;
+        color: $main-color;
+        text-align: center;
+        padding-bottom: $padding-ragular;
+      } //title
+
+      .desc {
+        color: $basic-font-color;
+        text-align: center;
+        padding-bottom: $padding-ragular;
+      }
+
+      button {
+        margin: 0 auto;
+        width: 14rem;
+      }
+    } //title-wrap
+  } //news-area
+} //main
+
+// 미디어쿼리 /////////////////////////////////////////
+// 모바일 분기점: 661px
+@media screen and (max-width: 890px) {
+  main {
+    .rslider-info-wrap {
+      display: none;
+    }
+  }
+} //890px
+@media screen and (max-width: 661px) {
+  //모바일 타이틀 사이즈
+  $title-size: 2.7rem;
+
+  main{
+    .brand-imgbox{
+      padding: 2.25rem 0;
+      max-width: 50vw;
+    }
+    .brand-info{
+      .title{
+        font-size: $title-size;
+      }
+    }
+    .main-info {
+      .title {
+        span {
+          font-size: $title-size;
+        }
+        padding: 0 $padding-ragular;
+      }
+      .img-box {
+        width: 40%;
+      }
+      .desc{
+        padding: 0 $padding-ragular;
+      }
+    }//main-info
+
+  } //main
+  .product-info .product-grid-wrap .title-wrap .title{
+    font-size: $title-size;
+  }
+  main .news-area .title-wrap{
+    padding: $padding-ragular 3vw;
+    .title{
+      font-size: $title-size;
+    }
+  } 
+} //661px

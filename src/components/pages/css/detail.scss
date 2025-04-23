@@ -1,0 +1,76 @@
+@import "../../../css/variable/common_variable.scss";
+@import "../../../css/variable/interval_variable.scss";
+
+.detail-page {
+  .back-btn{
+    margin: $container-padding auto;
+  }
+  .contents-wrap {
+    width: 38vw;
+    margin: 0 auto;
+  .title-wrap {
+    text-align: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 30vh;
+
+    &::after{
+        content: "";
+        background-color: $disabled-font-color;
+        height: 1px;
+        width: 100%;
+    }
+    & > div:first-child {
+      padding-bottom: $padding-small;
+    }
+    & > div + div {
+      padding-bottom: $padding-ragular;
+    }
+
+    .bar {
+      color: $disabled-font-color;
+    }
+    .title {
+      font-size: $sub-title-size;
+      font-weight: 500;
+    } //title
+  } //title-wrap
+
+
+    .annotation {
+        span{
+            display: block;
+            line-height: 1.7;
+        }
+        padding: $padding-ragular 0;
+    }
+
+    .img-wrap {
+        text-align: center;
+        .img-box {
+            margin: 0 auto;
+            width: 60%;
+        img {
+          width: 100%;
+        }
+      }
+      figcaption{
+        padding-top: $padding-small;
+        font-size: $annotation-size;
+        color: $disabled-font-color;
+      }
+    } //img-wrap
+    .desc{
+        padding-top: $padding-ragular;
+        text-indent: 1rem;
+        line-height: 1.7;
+    }
+  }//contents-wrap
+} //detail-page
+
+@media screen and (max-width:1024px) {
+  .detail-page .contents-wrap{
+    padding-top: 20vh;
+    width: 80vw;
+  }
+}//1024
